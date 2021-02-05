@@ -170,10 +170,46 @@
 
         let sendButton = document.getElementById("sendButton");
         sendButton.addEventListener("click", function(event){
-
-            window.location = "./index.html";
+            event.preventDefault();
+            
+            let contact = new Contact(fullName.value, contactNumber.value, emailAddress.value);
+            //<button onclick="backtohome">Replace document</button>;
+            //location.replace("index.html");
+            if(contact.serialize())
+            {
+              window.location = "./index.html";
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+            }
+            
            
         });
+    }
+
+    function displayContactList() 
+    {
+      if (localStorage.length > 0) 
+      {
+        let contactList = document.getElementById("contactList");
+
+        let data = "";
+
+        for (let index = 0; index < localStorage.length; index++) 
+        {
+          let contactData = localStorage.getItem((index + 1).toString());
+
+          let contact = new Contact();
+          contact.deserialize(contactData);
+
+          data += `<tr>
+          <th scope="row">${index + 1}</th>
+          <td>${contact.FullName}</td>
+          <td>${contact.ContactNumber}</td>
+          <td>${contact.EmailAddress}</td>
+        </tr>`;
+        }
+
+        contactList.innerHTML = data;
+      }
     }
 
     // function to correct the wrong link and text content in navigation bar
@@ -195,6 +231,8 @@
         let aboutUsListElement = document.getElementById("navBarAboutUs");
         aboutUsListElement.after(newListElement);
     }
+
+
 
     function Start()
     {

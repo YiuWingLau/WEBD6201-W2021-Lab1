@@ -79,7 +79,7 @@
       //projectOne.setAttribute("class", "row");
       projectOne.setAttribute("id", "projectOne");
       projectOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><p> We have successfully to help several companies building up their hardware systems.</p></td>`;
+                              <td class="col-8"><p> We have a great knowledge on building a computer up below 5 minutes.</p></td>`;
       project.appendChild(projectOne);
 
       // create & insert 2nd favorite project detail
@@ -108,25 +108,25 @@
     {
       // create and add heading to Projects page
       let serviceHeading = document.createElement("h1");
-      serviceHeading.setAttribute("id", "projectHeading");
+      serviceHeading.setAttribute("id", "serviceHeading");
       serviceHeading.textContent = " Our services";
       let mainContent = document.getElementsByTagName("main")[0];
       mainContent.appendChild(serviceHeading);
 
       
       // create favorite service element div tag
-      let service = document.createElement("table");
+      //let service = document.createElement("table");
       //service.setAttribute("class", "container");
-      service.setAttribute("id", "service");
-      mainContent.appendChild(service);
+     // service.setAttribute("id", "service");
+      //mainContent.appendChild(service);
 
       // create & insert 1st favorite service detail
-      let serviceOne = document.createElement("tr");
+      let serviceOne = document.createElement("div");
       //serviceOne.setAttribute("class", "row");
       serviceOne.setAttribute("id", "serviceOne");
-      serviceOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><p> We have a great knowledge on building a computer up below 5 minutes.</p></td>`;
-      service.appendChild(serviceOne);
+      serviceOne.innerHTML = `<div class="col-6"><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></div>
+                              <div class="col-6"><p> We have a great knowledge on building a computer up below 5 minutes.</p></div>`;
+                              mainContent.appendChild(serviceOne);
 
       // create & insert 2nd favorite service detail
       let serviceTwo = document.createElement("tr");
@@ -134,7 +134,7 @@
       serviceTwo.setAttribute("id", "serviceTwo");
       serviceTwo.innerHTML = `<td><img id="favImage" src="./images/mainframe.jpg" alt="mainframe development"></td>
                               <td><p> We have successfully to help several companies building up their mainframe systems.</p></td>`;
-      service.appendChild(serviceTwo);
+      project.appendChild(serviceTwo);
 
       // create & insert 2nd favorite service detail
       let serviceThree = document.createElement("tr");
@@ -170,10 +170,43 @@
 
         let sendButton = document.getElementById("sendButton");
         sendButton.addEventListener("click", function(event){
+            //event.preventDefault();
+            
+            let contact = new Contact(fullName.value, contactNumber.value, emailAddress.value);
 
-            window.location = "./index.html";
+            if(contact.serialize())
+            {
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+            }
            
         });
+    }
+
+    function displayContactList() 
+    {
+      if (localStorage.length > 0) 
+      {
+        let contactList = document.getElementById("contactList");
+
+        let data = "";
+
+        for (let index = 0; index < localStorage.length; index++) 
+        {
+          let contactData = localStorage.getItem((index + 1).toString());
+
+          let contact = new Contact();
+          contact.deserialize(contactData);
+
+          data += `<tr>
+          <th scope="row">${index + 1}</th>
+          <td>${contact.FullName}</td>
+          <td>${contact.ContactNumber}</td>
+          <td>${contact.EmailAddress}</td>
+        </tr>`;
+        }
+
+        contactList.innerHTML = data;
+      }
     }
 
     // function to correct the wrong link and text content in navigation bar

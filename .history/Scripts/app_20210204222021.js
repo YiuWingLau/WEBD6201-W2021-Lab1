@@ -79,7 +79,7 @@
       //projectOne.setAttribute("class", "row");
       projectOne.setAttribute("id", "projectOne");
       projectOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><p> We have successfully to help several companies building up their hardware systems.</p></td>`;
+                              <td><p> We have a great knowledge on building a computer up below 5 minutes.</p></td>`;
       project.appendChild(projectOne);
 
       // create & insert 2nd favorite project detail
@@ -170,10 +170,43 @@
 
         let sendButton = document.getElementById("sendButton");
         sendButton.addEventListener("click", function(event){
+            //event.preventDefault();
+            
+            let contact = new Contact(fullName.value, contactNumber.value, emailAddress.value);
 
-            window.location = "./index.html";
+            if(contact.serialize())
+            {
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+            }
            
         });
+    }
+
+    function displayContactList() 
+    {
+      if (localStorage.length > 0) 
+      {
+        let contactList = document.getElementById("contactList");
+
+        let data = "";
+
+        for (let index = 0; index < localStorage.length; index++) 
+        {
+          let contactData = localStorage.getItem((index + 1).toString());
+
+          let contact = new Contact();
+          contact.deserialize(contactData);
+
+          data += `<tr>
+          <th scope="row">${index + 1}</th>
+          <td>${contact.FullName}</td>
+          <td>${contact.ContactNumber}</td>
+          <td>${contact.EmailAddress}</td>
+        </tr>`;
+        }
+
+        contactList.innerHTML = data;
+      }
     }
 
     // function to correct the wrong link and text content in navigation bar

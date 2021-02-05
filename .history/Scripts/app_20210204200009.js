@@ -69,34 +69,29 @@
 
       
       // create favorite projects element div tag
-      let project = document.createElement("table");
+      //let project = document.createElement("div");
       //project.setAttribute("class", "container");
-      project.setAttribute("id", "project");
-      mainContent.appendChild(project);
+      //project.setAttribute("id", "project");
+      //mainContent.appendChild(project);
 
-      // create & insert 1st favorite project detail
-      let projectOne = document.createElement("tr");
-      //projectOne.setAttribute("class", "row");
-      projectOne.setAttribute("id", "projectOne");
-      projectOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><p> We have successfully to help several companies building up their hardware systems.</p></td>`;
-      project.appendChild(projectOne);
+      // create & insert first favorite project detail
+      //let projectOne = `<div class="row"><div class="col-4"> My favourite projects</div><div class="col-8"> My favourite projects</div></div>`;
 
-      // create & insert 2nd favorite project detail
-      let projectTwo = document.createElement("tr");
-      //projectTwo.setAttribute("class", "row");
-      projectTwo.setAttribute("id", "projectTwo");
-      projectTwo.innerHTML = `<td><img id="favImage" src="./images/mainframe.jpg" alt="mainframe development"></td>
-                              <td><p> We have successfully to help several companies building up their mainframe systems.</p></td>`;
-      project.appendChild(projectTwo);
+      
+      //let projectContent = document.getElementsByTagName("project")[0];
+      //projectContent.appendChild(projectOne);
 
-      // create & insert 2nd favorite project detail
-      let projectThree = document.createElement("tr");
-      //projectThree.setAttribute("class", "row");
-      projectThree.setAttribute("id", "projectThree");
-      projectThree.innerHTML = `<td><img id="favImage" src="./images/networking.jpg" alt="computer networking"></td>
-                                <td><p> We have successfully to help several companies building up their network.</p></td>`;
-      project.appendChild(projectThree);
+
+
+      //let projectParagraphOne = document.createElement("p");
+        // Step 2. configure the element
+        //newParagraph.setAttribute("id", "myprojects");
+        //newParagraph.textContent = "Here are my famourite projects.";
+        // Step 3. select the parent element
+       // let mainContent = document.getElementsByTagName("main")[0];
+        // Step 4. Add / Insert the element
+       // mainContent.appendChild(newParagraph);
+       // newParagraph.className = "fs-12";
     }
 
     function displayHumanResources()
@@ -106,43 +101,29 @@
     
     function displayServices()
     {
-      // create and add heading to Projects page
-      let serviceHeading = document.createElement("h1");
-      serviceHeading.setAttribute("id", "projectHeading");
-      serviceHeading.textContent = " Our services";
-      let mainContent = document.getElementsByTagName("main")[0];
-      mainContent.appendChild(serviceHeading);
+        
+        // another way of injecting content
+        let paragraphDiv = document.createElement("div");
+        let paragraphThree = `<p id="paragraphThree" class="fs-7 fw-bold">And this is the Third Paragraph</p>`;
+        paragraphDiv.innerHTML = paragraphThree;
 
-      
-      // create favorite service element div tag
-      let service = document.createElement("table");
-      //service.setAttribute("class", "container");
-      service.setAttribute("id", "service");
-      mainContent.appendChild(service);
+        // insertions
 
-      // create & insert 1st favorite service detail
-      let serviceOne = document.createElement("tr");
-      //serviceOne.setAttribute("class", "row");
-      serviceOne.setAttribute("id", "serviceOne");
-      serviceOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><p> We have a great knowledge on building a computer up below 5 minutes.</p></td>`;
-      service.appendChild(serviceOne);
+        // example of inserting before a node
+        // newParagraph.before(paragraphDiv);
 
-      // create & insert 2nd favorite service detail
-      let serviceTwo = document.createElement("tr");
-      //serviceTwo.setAttribute("class", "row");
-      serviceTwo.setAttribute("id", "serviceTwo");
-      serviceTwo.innerHTML = `<td><img id="favImage" src="./images/mainframe.jpg" alt="mainframe development"></td>
-                              <td><p> We have successfully to help several companies building up their mainframe systems.</p></td>`;
-      service.appendChild(serviceTwo);
+        // example of inserting after a node
+        newParagraph.after(paragraphDiv);
 
-      // create & insert 2nd favorite service detail
-      let serviceThree = document.createElement("tr");
-      //serviceThree.setAttribute("class", "row");
-      serviceThree.setAttribute("id", "serviceThree");
-      serviceThree.innerHTML = `<td><img id="favImage" src="./images/networking.jpg" alt="computer networking"></td>
-                                <td><p> We have successfully to help several companies building up their network.</p></td>`;
-      service.appendChild(serviceThree);
+        // deletions
+
+        // example of removing a single element
+        //paragraphOneElement.remove();
+
+        // example of removeChild
+       // mainContent.removeChild(paragraphOneElement);
+        // update / modification
+        //mainContent.firstElementChild.textContent = "Welcome Home!";
     }
 
     function displayContact()
@@ -170,10 +151,43 @@
 
         let sendButton = document.getElementById("sendButton");
         sendButton.addEventListener("click", function(event){
+            //event.preventDefault();
+            
+            let contact = new Contact(fullName.value, contactNumber.value, emailAddress.value);
 
-            window.location = "./index.html";
+            if(contact.serialize())
+            {
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+            }
            
         });
+    }
+
+    function displayContactList() 
+    {
+      if (localStorage.length > 0) 
+      {
+        let contactList = document.getElementById("contactList");
+
+        let data = "";
+
+        for (let index = 0; index < localStorage.length; index++) 
+        {
+          let contactData = localStorage.getItem((index + 1).toString());
+
+          let contact = new Contact();
+          contact.deserialize(contactData);
+
+          data += `<tr>
+          <th scope="row">${index + 1}</th>
+          <td>${contact.FullName}</td>
+          <td>${contact.ContactNumber}</td>
+          <td>${contact.EmailAddress}</td>
+        </tr>`;
+        }
+
+        contactList.innerHTML = data;
+      }
     }
 
     // function to correct the wrong link and text content in navigation bar
