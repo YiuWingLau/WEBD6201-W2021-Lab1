@@ -6,12 +6,10 @@ h1 {
 }
 
 p {
-    padding: 15px;
     color: blue;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
     font-size: 25px;
-    text-align: justify;
 }
 
 body {
@@ -22,4 +20,3 @@ body {
     width: 1000px;
     height: 600px;
 }
-

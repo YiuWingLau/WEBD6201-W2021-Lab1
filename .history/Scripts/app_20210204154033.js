@@ -10,28 +10,22 @@
 {
     function displayHome()
     {
-      // create heading element
-      let homeHeading = document.createElement("h1");
-      // configure the element
-      homeHeading.setAttribute("id", "homeHeading");
-      homeHeading.textContent = "Welcome to WEBD6201";
-      // select the parent element
-      let mainContent = document.getElementsByTagName("main")[0];
-      // Add / Insert the element
-      mainContent.appendChild(homeHeading);
-
-      // inject the background image to the home pageinject the background image to the home page
         let myhomebackground = document.createElement("img");
         myhomebackground.setAttribute("id", "homePicture");
         myhomebackground.setAttribute("src", "./images/homepagebackground.jpg");
         myhomebackground.setAttribute("alt", "Computer Programmer");
-        mainContent.appendChild(myhomebackground);
 
-        // inject the first paragraph to the home page
+        // Step 1. document.createElement
         let newParagraph = document.createElement("p");
+        // Step 2. configure the element
         newParagraph.setAttribute("id", "paragraphTwo");
-        newParagraph.textContent = "We provide the best programming service for you...";
+        newParagraph.text = "We provide the best programming service for you...";
+        // Step 3. select the parent element
+        let mainContent = document.getElementsByTagName("main")[0];
+        mainContent.appendChild(myhomebackground);
+        // Step 4. Add / Insert the element
         mainContent.appendChild(newParagraph);
+        //newParagraph.className = "fs-6";      
     }
 
     function displayAbout()

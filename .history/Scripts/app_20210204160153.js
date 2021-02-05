@@ -13,12 +13,12 @@
       // create heading element
       let homeHeading = document.createElement("h1");
       // configure the element
-      homeHeading.setAttribute("id", "homeHeading");
-      homeHeading.textContent = "Welcome to WEBD6201";
+      newParagraph.setAttribute("id", "homeHeading");
+      newParagraph.textContent = "Welcome to WEBD6201";
       // select the parent element
       let mainContent = document.getElementsByTagName("main")[0];
       // Add / Insert the element
-      mainContent.appendChild(homeHeading);
+      mainContent.appendChild();
 
       // inject the background image to the home pageinject the background image to the home page
         let myhomebackground = document.createElement("img");
@@ -29,7 +29,7 @@
 
         // inject the first paragraph to the home page
         let newParagraph = document.createElement("p");
-        newParagraph.setAttribute("id", "paragraphTwo");
+        newParagraph.setAttribute("id", "paragraphOne");
         newParagraph.textContent = "We provide the best programming service for you...";
         mainContent.appendChild(newParagraph);
     }

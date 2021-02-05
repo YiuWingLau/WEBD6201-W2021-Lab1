@@ -1,0 +1,9 @@
+p {
+    color: blue;
+}
+
+#homepic {
+    width: 1000px;
+    height: 600px;
+    content: '\F0266';
+}
