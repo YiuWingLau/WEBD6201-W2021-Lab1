@@ -5,14 +5,6 @@ h1 {
     font-style: italic;
 }
 
-h3 {
-    padding: 15px;
-    color: darkgreen;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-style: italic;
-    text-align: justify;
-}
-
 p {
     padding: 15px;
     color: blue;
@@ -31,12 +23,8 @@ body {
     height: 600px;
 }
 
-#myImage {
-    width: 800px;
-    height: 600px;
-}
-
 #favImage {
+    
     width: 350px;
     height: 250px;
 }

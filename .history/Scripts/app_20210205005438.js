@@ -1,8 +1,3 @@
-/*
-Name: Yiu Wing Lau
-Student ID: 100704716
-Date Completed: 04/02/2021
-*/
 /* custom JavaScript goes here */
 
 //IIFE - Immediately Invoked Function Expression
@@ -15,9 +10,9 @@ Date Completed: 04/02/2021
 {
     function displayHome()
     {
-      // create home heading element
+      // create heading element
       let homeHeading = document.createElement("h1");
-      // configure the element, adding paragraph to welcome user visiting the page
+      // configure the element
       homeHeading.setAttribute("id", "homeHeading");
       homeHeading.textContent = "Welcome to WEBD6201";
       // select the parent element
@@ -25,7 +20,7 @@ Date Completed: 04/02/2021
       // Add / Insert the element
       mainContent.appendChild(homeHeading);
 
-      // create the home background image to the home page
+      // create the background image to the home page
       let homeBackground = document.createElement("img");
       homeBackground.setAttribute("id", "homeImage");
       homeBackground.setAttribute("src", "./images/homeBackground.jpg");
@@ -41,13 +36,6 @@ Date Completed: 04/02/2021
 
     function displayAbout()
     {
-      // create and add heading to About Us page
-      let aboutHeading = document.createElement("h1");
-      aboutHeading.setAttribute("id", "aboutHeading");
-      aboutHeading.textContent = "About us";
-      let mainContent = document.getElementsByTagName("main")[0];
-      mainContent.appendChild(aboutHeading);
-
       // add my picture to About Us page
       let myPicture = document.createElement("img");
       myPicture.setAttribute("id", "myImage");
@@ -60,6 +48,7 @@ Date Completed: 04/02/2021
       let ParagraphOne = document.createElement("p");
       ParagraphOne.setAttribute("id", "myIntro");
       ParagraphOne.textContent = "Hi, my name is Nelson Lau, I am a student of Durham Collage who study computer programming. I am learning various kinds of programming, web design and development, also I have a well knowledge on computer hardware.";
+      let mainContent = document.getElementsByTagName("main")[0];
       mainContent.appendChild(myPicture);
       mainContent.appendChild(ParagraphOne);
       ParagraphOne.className = "fs-lg";
@@ -132,7 +121,7 @@ Date Completed: 04/02/2021
       //serviceOne.setAttribute("class", "row");
       serviceOne.setAttribute("id", "serviceOne");
       serviceOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><p> We have a great knowledge on assembling a computer. We will use the best hardware component to meet your needs. And we have the best team to provide maintenance service for you.</p></td>`;
+                              <td><h3></h3><p> We have a great knowledge on assembling a computer. We will use the best hardware component to meet your needs. And we have the best team to provide maintenance service for you.</p></td>`;
       service.appendChild(serviceOne);
 
       // create & insert 2nd favorite service detail
@@ -140,7 +129,7 @@ Date Completed: 04/02/2021
       //serviceTwo.setAttribute("class", "row");
       serviceTwo.setAttribute("id", "serviceTwo");
       serviceTwo.innerHTML = `<td><img id="favImage" src="./images/mainframe.jpg" alt="mainframe development"></td>
-                              <td><p> We develop various kind of softwares for mainframe systems.</p></td>`;
+                              <td><h3></h3><p> We develop various kind of softwares for mainframe systems.</p></td>`;
       service.appendChild(serviceTwo);
 
       // create & insert 2nd favorite service detail
@@ -148,13 +137,12 @@ Date Completed: 04/02/2021
       //serviceThree.setAttribute("class", "row");
       serviceThree.setAttribute("id", "serviceThree");
       serviceThree.innerHTML = `<td><img id="favImage" src="./images/networking.jpg" alt="computer networking"></td>
-                                <td><p> We can help with constructing network for your company. We are good at web design and development of web pages that fit your need.</p></td>`;
+                                <td><h3></h3><p> We can help with constructing network for your company. We are good at web design and development of web pages that fit your need.</p></td>`;
       service.appendChild(serviceThree);
     }
 
     function displayContact()
     {
-      // Create a message box for user to enter short message
         let messageArea = document.getElementById("messageArea");
         messageArea.hidden = true;
 

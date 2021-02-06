@@ -1,8 +1,3 @@
-/*
-Name: Yiu Wing Lau
-Student ID: 100704716
-Date Completed: 04/02/2021
-*/
 /* custom JavaScript goes here */
 
 //IIFE - Immediately Invoked Function Expression
@@ -15,9 +10,9 @@ Date Completed: 04/02/2021
 {
     function displayHome()
     {
-      // create home heading element
+      // create heading element
       let homeHeading = document.createElement("h1");
-      // configure the element, adding paragraph to welcome user visiting the page
+      // configure the element
       homeHeading.setAttribute("id", "homeHeading");
       homeHeading.textContent = "Welcome to WEBD6201";
       // select the parent element
@@ -25,7 +20,7 @@ Date Completed: 04/02/2021
       // Add / Insert the element
       mainContent.appendChild(homeHeading);
 
-      // create the home background image to the home page
+      // create the background image to the home page
       let homeBackground = document.createElement("img");
       homeBackground.setAttribute("id", "homeImage");
       homeBackground.setAttribute("src", "./images/homeBackground.jpg");
@@ -41,28 +36,25 @@ Date Completed: 04/02/2021
 
     function displayAbout()
     {
-      // create and add heading to About Us page
-      let aboutHeading = document.createElement("h1");
-      aboutHeading.setAttribute("id", "aboutHeading");
-      aboutHeading.textContent = "About us";
-      let mainContent = document.getElementsByTagName("main")[0];
-      mainContent.appendChild(aboutHeading);
+        //add my picture to About Us page
+        let myPicture = document.createElement("img");
+        myPicture.setAttribute("id", "myImage");
+        myPicture.setAttribute("src", "./images/nelson.jpg");
+        myPicture.setAttribute("alt", "Nelson Lau");
+        myPicture.setAttribute("width", "192");
+        myPicture.setAttribute("height", "108");
 
-      // add my picture to About Us page
-      let myPicture = document.createElement("img");
-      myPicture.setAttribute("id", "myImage");
-      myPicture.setAttribute("src", "./images/nelson.jpg");
-      myPicture.setAttribute("alt", "Nelson Lau");
-      myPicture.setAttribute("width", "192");
-      myPicture.setAttribute("height", "108");
-
-      // add paragraph to the About Us page
-      let ParagraphOne = document.createElement("p");
-      ParagraphOne.setAttribute("id", "myIntro");
-      ParagraphOne.textContent = "Hi, my name is Nelson Lau, I am a student of Durham Collage who study computer programming. I am learning various kinds of programming, web design and development, also I have a well knowledge on computer hardware.";
-      mainContent.appendChild(myPicture);
-      mainContent.appendChild(ParagraphOne);
-      ParagraphOne.className = "fs-lg";
+        // Step 1. document.createElement
+        let ParagraphOne = document.createElement("p");
+        // Step 2. configure the element
+        ParagraphOne.setAttribute("id", "myIntroduction");
+        ParagraphOne.textContent = "Here are my favourite projects.";
+        // Step 3. select the parent element
+        let mainContent = document.getElementsByTagName("main")[0];
+        mainContent.appendChild(myPicture);
+        // Step 4. Add / Insert the element
+        mainContent.appendChild(ParagraphOne);
+        ParagraphOne.className = "fs-lg";
                 
     }
 
@@ -74,6 +66,7 @@ Date Completed: 04/02/2021
       projectHeading.textContent = " My favourite projects";
       let mainContent = document.getElementsByTagName("main")[0];
       mainContent.appendChild(projectHeading);
+
       
       // create table for favorite projects details
       let project = document.createElement("table");
@@ -84,42 +77,38 @@ Date Completed: 04/02/2021
       let projectOne = document.createElement("tr");
       projectOne.setAttribute("id", "projectOne");
       projectOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><h3> Computer System Hardware</h3><p> Through this project I learn how to identify and describe computer components and peripherals and how to build and troubleshoot systems from a hardware perspective. </p></td>`;
+                              <td><p> We have successfully to help several companies building up their hardware systems.</p></td>`;
       project.appendChild(projectOne);
 
       // create & insert 2nd favorite project detail
       let projectTwo = document.createElement("tr");
       projectTwo.setAttribute("id", "projectTwo");
       projectTwo.innerHTML = `<td><img id="favImage" src="./images/mainframe.jpg" alt="mainframe development"></td>
-                              <td><h3> Mainframe Development</h3><p> This project uses COBOL programming language for application programs and systems for Mainframe computing. It provides us with a foundation in problem analysis, program design and implementation that can be applied in a variety of programming situations and languages.</p></td>`;
+                              <td><p> We have successfully to help several companies building up their mainframe systems.</p></td>`;
       project.appendChild(projectTwo);
 
       // create & insert 2nd favorite project detail
       let projectThree = document.createElement("tr");
       projectThree.setAttribute("id", "projectThree");
       projectThree.innerHTML = `<td><img id="favImage" src="./images/networking.jpg" alt="computer networking"></td>
-                                <td><h3> Web Development</h3><p> Created server-side web applications using the PHP scripting language and achieved database functionality with performing SQL queries running on the server.</p></td>`;
+                                <td><p> We have successfully to help several companies building up their network.</p></td>`;
       project.appendChild(projectThree);
     }
 
     function displayHumanResources()
     {
-      // create and add heading to Human Resources page
-      let humanResHeading = document.createElement("h1");
-      humanResHeading.setAttribute("id", "humanResHeading");
-      humanResHeading.textContent = " Welcome to Human Resources";
-      let mainContent = document.getElementsByTagName("main")[0];
-      mainContent.appendChild(humanResHeading);
+
     }
     
     function displayServices()
     {
-      // create and add heading to Services page
+      // create and add heading to Projects page
       let serviceHeading = document.createElement("h1");
       serviceHeading.setAttribute("id", "projectHeading");
       serviceHeading.textContent = " Our services";
       let mainContent = document.getElementsByTagName("main")[0];
       mainContent.appendChild(serviceHeading);
+
       
       // create favorite service element div tag
       let service = document.createElement("table");
@@ -132,7 +121,7 @@ Date Completed: 04/02/2021
       //serviceOne.setAttribute("class", "row");
       serviceOne.setAttribute("id", "serviceOne");
       serviceOne.innerHTML = `<td><img id="favImage" src="./images/hardware.jpg" alt="computer hardware"></td>
-                              <td><p> We have a great knowledge on assembling a computer. We will use the best hardware component to meet your needs. And we have the best team to provide maintenance service for you.</p></td>`;
+                              <td><p> We have a great knowledge on building a computer up below 5 minutes.</p></td>`;
       service.appendChild(serviceOne);
 
       // create & insert 2nd favorite service detail
@@ -140,7 +129,7 @@ Date Completed: 04/02/2021
       //serviceTwo.setAttribute("class", "row");
       serviceTwo.setAttribute("id", "serviceTwo");
       serviceTwo.innerHTML = `<td><img id="favImage" src="./images/mainframe.jpg" alt="mainframe development"></td>
-                              <td><p> We develop various kind of softwares for mainframe systems.</p></td>`;
+                              <td><p> We have successfully to help several companies building up their mainframe systems.</p></td>`;
       service.appendChild(serviceTwo);
 
       // create & insert 2nd favorite service detail
@@ -148,13 +137,12 @@ Date Completed: 04/02/2021
       //serviceThree.setAttribute("class", "row");
       serviceThree.setAttribute("id", "serviceThree");
       serviceThree.innerHTML = `<td><img id="favImage" src="./images/networking.jpg" alt="computer networking"></td>
-                                <td><p> We can help with constructing network for your company. We are good at web design and development of web pages that fit your need.</p></td>`;
+                                <td><p> We have successfully to help several companies building up their network.</p></td>`;
       service.appendChild(serviceThree);
     }
 
     function displayContact()
     {
-      // Create a message box for user to enter short message
         let messageArea = document.getElementById("messageArea");
         messageArea.hidden = true;
 
@@ -176,7 +164,6 @@ Date Completed: 04/02/2021
             }
         });
 
-        // return to Home page when submit button is kick
         let sendButton = document.getElementById("sendButton");
         sendButton.addEventListener("click", function(event){
 

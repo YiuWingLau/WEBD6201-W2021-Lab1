@@ -5,12 +5,11 @@ h1 {
     font-style: italic;
 }
 
-h3 {
+h6 {
     padding: 15px;
     color: darkgreen;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
-    text-align: justify;
 }
 
 p {
@@ -32,7 +31,7 @@ body {
 }
 
 #myImage {
-    width: 800px;
+    width: 1200px;
     height: 600px;
 }
 

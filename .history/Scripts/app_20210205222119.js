@@ -15,9 +15,9 @@ Date Completed: 04/02/2021
 {
     function displayHome()
     {
-      // create home heading element
+      // create heading element
       let homeHeading = document.createElement("h1");
-      // configure the element, adding paragraph to welcome user visiting the page
+      // configure the element
       homeHeading.setAttribute("id", "homeHeading");
       homeHeading.textContent = "Welcome to WEBD6201";
       // select the parent element
@@ -25,7 +25,7 @@ Date Completed: 04/02/2021
       // Add / Insert the element
       mainContent.appendChild(homeHeading);
 
-      // create the home background image to the home page
+      // create the background image to the home page
       let homeBackground = document.createElement("img");
       homeBackground.setAttribute("id", "homeImage");
       homeBackground.setAttribute("src", "./images/homeBackground.jpg");
@@ -41,7 +41,6 @@ Date Completed: 04/02/2021
 
     function displayAbout()
     {
-      // create and add heading to About Us page
       let aboutHeading = document.createElement("h1");
       aboutHeading.setAttribute("id", "aboutHeading");
       aboutHeading.textContent = "About us";
@@ -154,7 +153,6 @@ Date Completed: 04/02/2021
 
     function displayContact()
     {
-      // Create a message box for user to enter short message
         let messageArea = document.getElementById("messageArea");
         messageArea.hidden = true;
 
